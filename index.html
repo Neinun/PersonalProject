@@ -308,10 +308,11 @@
       width: 100%;
       height: 100%;
       transform-style: preserve-3d;
-      transition: transform 0.65s cubic-bezier(0.4, 0.0, 0.2, 1);
+      transition: transform 0.5s cubic-bezier(0.3, 0.0, 0.2, 1);
       border: var(--border-thick);
       border-radius: var(--radius-sm);
       box-shadow: var(--shadow-retro-sm);
+      will-change: transform;
     }
 
     .metro-tile:hover .tile-inner {
@@ -401,6 +402,28 @@
       padding: 14px 14px 10px;
     }
 
+    .tile-travel-beach {
+      background-image: url('beach.jpg');
+      background-size: cover;
+      background-position: center 60%;
+      color: #FFFFFF;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end !important;
+      padding: 14px 16px 12px;
+    }
+
+    .tile-travel-mountain {
+      background-image: url('mountains.jpg');
+      background-size: cover;
+      background-position: center 60%;
+      color: #FFFFFF;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end !important;
+      padding: 14px 16px 12px;
+    }
+
     .tile-mulsy-front {
       background: var(--mustard);
       color: var(--charcoal);
@@ -427,6 +450,251 @@
       width: auto;
       object-fit: contain;
       display: block;
+    }
+
+    .samsung-logo-box {
+      background: #F7EBD4;
+      border: 2px solid var(--charcoal);
+      border-radius: var(--radius-sm);
+      padding: 6px 14px;
+      box-shadow: 2px 2px 0px var(--charcoal);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 2px 0;
+    }
+
+    .samsung-logo-img {
+      max-height: 42px;
+      width: auto;
+      object-fit: contain;
+      display: block;
+    }
+
+    .aws-logo-box {
+      background: #FFFFFF;
+      border: 2px solid var(--charcoal);
+      border-radius: var(--radius-sm);
+      padding: 4px 6px;
+      box-shadow: 2px 2px 0px var(--charcoal);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 2px 0;
+    }
+
+    .aws-logo-img {
+      max-height: 52px;
+      max-width: 90%;
+      object-fit: contain;
+      display: block;
+    }
+
+    /* Book Text Motion Icon Animation */
+    @keyframes bookMotionAnimate {
+      0% {
+        transform: scale(1) rotate(0deg) translateY(0);
+      }
+      20% {
+        transform: scale(1.04) rotate(-8deg) translateY(-2px);
+      }
+      50% {
+        transform: scale(1.04) rotate(8deg) translateY(-1px);
+      }
+      80% {
+        transform: scale(1.04) rotate(-8deg) translateY(-2px);
+      }
+      100% {
+        transform: scale(1) rotate(0deg) translateY(0);
+      }
+    }
+
+    .book-icon-wrap {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: color 0.2s ease;
+    }
+
+    .book-motion-svg {
+      transform-origin: center center;
+      transition: transform 0.2s ease;
+      display: block;
+    }
+
+    .metro-tile:hover .book-motion-svg,
+    .book-icon-wrap:hover .book-motion-svg {
+      animation: bookMotionAnimate 0.6s ease-in-out;
+    }
+
+    /* Movie Clap Motion Icon Animation */
+    @keyframes clapTopMotion {
+      0% {
+        transform: rotate(0deg);
+      }
+      30% {
+        transform: rotate(-14deg);
+      }
+      60% {
+        transform: rotate(16deg);
+      }
+      100% {
+        transform: rotate(0deg);
+      }
+    }
+
+    @keyframes clapBaseMotion {
+      0% {
+        transform: rotate(-8deg);
+      }
+      45% {
+        transform: rotate(-8deg);
+      }
+      100% {
+        transform: rotate(0deg);
+      }
+    }
+
+    .clap-icon-wrap {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .clap-motion-svg {
+      overflow: visible;
+      display: block;
+    }
+
+    .clap-motion-svg .clap-base {
+      transform-origin: 4px 20px;
+      transition: transform 0.2s ease;
+    }
+
+    .clap-motion-svg .clap-top {
+      transform-origin: 3px 11px;
+      transition: transform 0.2s ease;
+    }
+
+    .metro-tile:hover .clap-motion-svg .clap-top,
+    .clap-icon-wrap:hover .clap-motion-svg .clap-top {
+      animation: clapTopMotion 0.45s ease-in-out;
+    }
+
+    .metro-tile:hover .clap-motion-svg .clap-base,
+    .clap-icon-wrap:hover .clap-motion-svg .clap-base {
+      animation: clapBaseMotion 0.75s ease-in-out;
+    }
+
+    /* Certificate Medal Motion Animation */
+    @keyframes certBadgePulse {
+      0% {
+        transform: scale(1) rotate(0deg);
+      }
+      25% {
+        transform: scale(1.06) rotate(-5deg);
+      }
+      50% {
+        transform: scale(1.06) rotate(5deg);
+      }
+      75% {
+        transform: scale(1.04) rotate(-3deg);
+      }
+      100% {
+        transform: scale(1) rotate(0deg);
+      }
+    }
+
+    .cert-icon-wrap {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .cert-motion-svg {
+      transform-origin: center center;
+      transition: transform 0.2s ease;
+      display: block;
+    }
+
+    .metro-tile:hover .cert-motion-svg,
+    .cert-icon-wrap:hover .cert-motion-svg {
+      animation: certBadgePulse 0.6s ease-in-out;
+    }
+
+    /* LinkedIn Motion Stroke Drawing Animation */
+    @keyframes liDrawPath {
+      0% {
+        stroke-dashoffset: 100;
+        opacity: 0;
+      }
+      15% {
+        opacity: 1;
+      }
+      100% {
+        stroke-dashoffset: 0;
+        opacity: 1;
+      }
+    }
+
+    .linkedin-icon-wrap {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .linkedin-motion-svg {
+      overflow: visible;
+      display: block;
+    }
+
+    .linkedin-motion-svg path,
+    .linkedin-motion-svg rect,
+    .linkedin-motion-svg circle {
+      stroke-dasharray: 100;
+      stroke-dashoffset: 0;
+    }
+
+    .metro-tile:hover .linkedin-motion-svg path,
+    .metro-tile:hover .linkedin-motion-svg rect,
+    .metro-tile:hover .linkedin-motion-svg circle,
+    .linkedin-icon-wrap:hover .linkedin-motion-svg path,
+    .linkedin-icon-wrap:hover .linkedin-motion-svg rect,
+    .linkedin-icon-wrap:hover .linkedin-motion-svg circle {
+      animation: liDrawPath 0.65s linear forwards;
+    }
+
+    /* Graduation Cap Motion Animation */
+    @keyframes gradCapToss {
+      0% {
+        transform: translateY(0) rotate(0deg);
+      }
+      30% {
+        transform: translateY(-4px) rotate(-6deg);
+      }
+      60% {
+        transform: translateY(-2px) rotate(4deg);
+      }
+      100% {
+        transform: translateY(0) rotate(0deg);
+      }
+    }
+
+    .grad-icon-wrap {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .grad-motion-svg {
+      transform-origin: center center;
+      transition: transform 0.2s ease;
+      display: block;
+    }
+
+    .metro-tile:hover .grad-motion-svg,
+    .grad-icon-wrap:hover .grad-motion-svg {
+      animation: gradCapToss 0.6s ease-in-out;
     }
 
     .tile-video-front {
@@ -623,84 +891,6 @@
       border: var(--border-thin);
       border-radius: var(--radius-sm);
       box-shadow: var(--shadow-retro-sm);
-    }
-
-    .crt-monitor-card {
-      background: var(--surface-ivory);
-      border: var(--border-thick);
-      border-radius: var(--radius-md);
-      box-shadow: var(--shadow-retro-lg);
-      padding: 24px;
-      margin-bottom: 48px;
-    }
-
-    .crt-bezel {
-      background: var(--charcoal);
-      border-radius: var(--radius-md);
-      padding: 20px;
-      box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.8);
-      position: relative;
-    }
-
-    .crt-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      color: var(--mustard);
-      font-family: var(--font-mono);
-      font-size: 12px;
-      margin-bottom: 12px;
-      padding: 0 4px;
-    }
-
-    .rec-indicator {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      color: var(--retro-pink);
-      font-weight: bold;
-    }
-
-    .rec-dot {
-      width: 8px;
-      height: 8px;
-      background: var(--retro-pink);
-      border-radius: 50%;
-      animation: pulse 1s infinite;
-    }
-
-    .video-container {
-      position: relative;
-      width: 100%;
-      border-radius: var(--radius-sm);
-      overflow: hidden;
-      background: #000;
-      border: 2px solid #444;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .video-element {
-      width: 100%;
-      max-height: 480px;
-      display: block;
-      object-fit: cover;
-    }
-
-    .crt-controls {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-top: 14px;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
-
-    .crt-info-text {
-      color: var(--surface-ivory);
-      font-family: var(--font-mono);
-      font-size: 12px;
     }
 
     /* ==========================================================================
@@ -1160,7 +1350,6 @@
             <li><a href="#about" class="nav-link">ABOUT</a></li>
             <li><a href="#experience" class="nav-link">EXPERIENCE</a></li>
             <li><a href="#projects" class="nav-link">PROJECTS</a></li>
-            <li><a href="#media" class="nav-link">MEDIA</a></li>
             <li><a href="#contact" class="nav-link">CONTACT</a></li>
           </ul>
         </div>
@@ -1177,7 +1366,7 @@
         <div class="hero-card-header">
           <div>CASIO DATABANK // LUMIA LIVE MATRIX // 3-ROW TILES</div>
           <div class="metro-hint">
-            <span>AUTO-FLIP: 3s</span>
+            <span>AUTO-FLIP: 4s</span>
             <span>•</span>
             <span>CLICK TO FLIP</span>
           </div>
@@ -1191,9 +1380,7 @@
                 <div class="profile-front-content">
                   <div class="tile-title" style="font-size: 22px; line-height: 1.15; margin-bottom: 2px; text-shadow: 0 2px 5px rgba(0,0,0,0.9);">Sumit Kumar Singh</div>
                   <div class="tile-subtitle" style="color: var(--mustard); text-shadow: 0 1px 4px rgba(0,0,0,0.9); font-weight: 600; font-size: 13px; margin-bottom: 6px;">Engineer // MBA</div>
-                  <div class="tile-footer" style="justify-content: flex-end;">
-                    <span style="font-size: 10px; color: var(--mustard); text-shadow: 0 1px 3px rgba(0,0,0,0.9);">TAP TO READ BIO -></span>
-                  </div>
+                  <div class="tile-footer"></div>
                 </div>
               </div>
               <div class="tile-back tile-plum">
@@ -1211,107 +1398,88 @@
                 <div class="tile-desc" style="font-size: 12px; line-height: 1.45; opacity: 0.95;">
                   Former Cloud Support Engineer & EC2-Linux SME at Amazon Web Services (100% CSAT, 1,000+ customer contacts). Currently at IIM Tiruchirappalli, exploring business management and strategic opportunities.
                 </div>
-                <div class="tile-footer" style="justify-content: flex-end;">
-                  <span style="font-size: 10px; opacity: 0.8;">TAP TO FLIP &lt;-</span>
-                </div>
+                <div class="tile-footer"></div>
               </div>
             </div>
           </div>
 
-          <!-- TILE 2: Featured Project (1 row x 2 cols) -->
+          <!-- TILE 2: Samsung Summer Internship (1 row x 2 cols) -->
           <div class="metro-tile col-span-2" onclick="handleTileClick(this)">
             <div class="tile-inner">
-              <div class="tile-front tile-pink">
+              <div class="tile-front tile-pink" style="display: flex; flex-direction: column; justify-content: space-between;">
                 <div class="tile-top-row">
-                  <span class="tile-badge">FEATURED WORK</span>
-                  <span class="tile-icon" style="font-family: var(--font-mono); font-size: 13px; font-weight: 700;">[PROJ]</span>
+                  <span class="tile-badge" style="color: var(--retro-pink); background: var(--surface-ivory); padding: 1px 6px; border-radius: 2px;">SUMMER INTERN</span>
                 </div>
-                <div>
-                  <div class="tile-title">Retro Chrono OS</div>
-                  <div class="tile-subtitle">Synthesized 8-Bit Dashboard</div>
+                <div class="samsung-logo-box">
+                  <img src="samsung.png" alt="Samsung" class="samsung-logo-img">
                 </div>
-                <div class="tile-footer">
-                  <span style="font-size: 10px; background: rgba(0,0,0,0.2); padding: 1px 6px; border-radius: 2px;">v1.4.0 LIVE</span>
-                  <span style="font-size: 10px;">DETAILS -></span>
-                </div>
+                <div class="tile-footer"></div>
               </div>
-              <div class="tile-back tile-charcoal">
+              <div class="tile-back tile-charcoal" style="padding: 12px 14px; justify-content: space-between;">
                 <div class="tile-top-row">
-                  <span class="tile-badge" style="color: var(--retro-pink);">PROJECT OVERVIEW</span>
-                  <span style="font-size: 11px; font-family: var(--font-mono); color: var(--mustard);">TS + WEB AUDIO</span>
+                  <span class="tile-badge" style="color: var(--retro-pink); font-size: 10.5px; font-weight: 700; letter-spacing: 0.3px;">Samsung India Electronics Limited</span>
                 </div>
-                <div class="tile-desc">
-                  Minimalist dashboard with alarm scheduler & audio synthesizers.
+                <div class="tile-desc" style="font-size: 12px; line-height: 1.45; color: var(--surface-ivory); margin: auto 0;">
+                  Interned at Samsung over the summer working on creating the GTM strategy for Spatial Signage
                 </div>
-                <div class="tile-footer">
-                  <a href="#projects" class="tile-cta-link" style="color: var(--mustard);" onclick="event.stopPropagation()">VIEW IN PROJECTS -></a>
-                  <span style="font-size: 10px; opacity: 0.7;">&lt;-</span>
+                <div class="tile-footer" style="justify-content: flex-end;">
+                  <a href="#experience" class="tile-cta-link" style="color: var(--charcoal); background: var(--mustard); font-weight: 700; border: none; padding: 3px 8px; font-size: 11px; border-radius: 2px; display: inline-flex; align-items: center; gap: 3px;" onclick="event.stopPropagation()">
+                    Read More ↗
+                  </a>
                 </div>
               </div>
             </div>
           </div>
 
-          <!-- TILE 3: College Graduation Milestone (1 row x 1 col) -->
+          <!-- TILE 3: Amazon Web Services Work Experience (1 row x 1 col) -->
           <div class="metro-tile" onclick="handleTileClick(this)">
             <div class="tile-inner">
-              <div class="tile-front tile-classic-blue">
+              <div class="tile-front tile-classic-blue" style="display: flex; flex-direction: column; justify-content: space-between;">
                 <div class="tile-top-row">
-                  <span class="tile-badge">EDUCATION</span>
-                  <span class="tile-icon" style="font-family: var(--font-mono); font-size: 13px; font-weight: 700;">[EDU]</span>
+                  <span class="tile-badge" style="color: var(--surface-ivory); background: rgba(0,0,0,0.3); padding: 1px 5px; border-radius: 2px;">WORK EXPERIENCE</span>
                 </div>
-                <div>
-                  <div class="tile-title" style="font-size: 15px;">B.Tech CS</div>
-                  <div class="tile-subtitle">Honors '24</div>
+                <div class="aws-logo-box">
+                  <img src="aws.png" alt="AWS" class="aws-logo-img">
                 </div>
-                <div class="tile-footer">
-                  <span style="font-size: 10px; opacity: 0.85;">MILESTONE</span>
-                  <span style="font-size: 10px;">-></span>
-                </div>
+                <div class="tile-footer"></div>
               </div>
-              <div class="tile-back tile-classic-blue">
+              <div class="tile-back tile-classic-blue" style="padding: 12px 14px; justify-content: space-between;">
                 <div class="tile-top-row">
-                  <span class="tile-badge" style="color: var(--mustard);">ALMA MATER</span>
-                  <span style="font-size: 11px; font-family: var(--font-mono); color: var(--mustard);">[DEGREE]</span>
+                  <span class="tile-badge" style="color: var(--mustard); font-size: 11px; font-weight: 700; letter-spacing: 0.3px;">Amazon Web Services</span>
                 </div>
-                <div class="tile-desc">
-                  Graduated Magna Cum Laude with CS Honors. Thesis on real-time distributed audio.
+                <div class="tile-desc" style="font-size: 12px; line-height: 1.45; color: var(--surface-ivory); margin: auto 0;">
+                  Cloud Support Engineer at AWS for about 3 years
                 </div>
-                <div class="tile-footer">
-                  <span style="font-size: 10px; color: var(--mustard);">CLASS OF '24</span>
-                  <span style="font-size: 10px; opacity: 0.7;">&lt;-</span>
+                <div class="tile-footer" style="justify-content: flex-end;">
+                  <a href="#experience" class="tile-cta-link" style="color: var(--charcoal); background: var(--mustard); font-weight: 700; border: none; padding: 3px 8px; font-size: 11px; border-radius: 2px; display: inline-flex; align-items: center; gap: 3px;" onclick="event.stopPropagation()">
+                    Read More ↗
+                  </a>
                 </div>
               </div>
             </div>
           </div>
 
-          <!-- TILE 4: Live Status & Availability (1 row x 1 col) -->
+          <!-- TILE 4: Reading & Knowledge Log (1 row x 1 col) -->
           <div class="metro-tile" onclick="handleTileClick(this)">
             <div class="tile-inner">
-              <div class="tile-front tile-ivory">
-                <div class="tile-top-row">
-                  <span class="tile-badge" style="color: var(--text-plum);">STATUS</span>
-                  <span class="live-dot"></span>
+              <div class="tile-front tile-ivory" style="display: flex; flex-direction: column; justify-content: space-between; padding: 14px 12px 10px;">
+                <div></div>
+                <div style="display: flex; align-items: center; justify-content: center; margin: auto 0;">
+                  <div class="book-icon-wrap" style="color: var(--retro-pink);">
+                    <svg class="book-motion-svg" width="52" height="52" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H19a1 1 0 0 1 1 1v18a1 1 0 0 1-1 1H6.5a1 1 0 0 1 0-5H20" />
+                      <path d="M8 11h8" />
+                      <path d="M8 7h6" />
+                    </svg>
+                  </div>
                 </div>
-                <div>
-                  <div class="tile-title" style="font-size: 15px; color: var(--text-plum);">ONLINE</div>
-                  <div class="tile-subtitle" style="color: var(--dusty-mauve);">Open for Work</div>
-                </div>
-                <div class="tile-footer" style="color: var(--text-plum);">
-                  <span style="font-size: 10px;">CONTRACT / FT</span>
-                  <span style="font-size: 10px;">-></span>
+                <div class="tile-footer" style="justify-content: center; text-align: center; color: var(--text-plum); font-family: var(--font-mono); font-size: 11px; font-weight: 700; width: 100%;">
+                  Book Shelf // 2026
                 </div>
               </div>
-              <div class="tile-back tile-ivory">
-                <div class="tile-top-row">
-                  <span class="tile-badge" style="color: var(--text-plum);">AVAILABILITY</span>
-                  <span class="live-dot"></span>
-                </div>
-                <div class="tile-desc" style="color: var(--text-plum);">
-                  Available for freelance projects, technical consulting & full-time roles worldwide.
-                </div>
-                <div class="tile-footer" style="color: var(--text-plum);">
-                  <a href="#contact" class="tile-cta-link" style="color: var(--text-plum); background: var(--surface-ivory); border-color: var(--charcoal);" onclick="event.stopPropagation()">HIRE ME -></a>
-                  <span style="font-size: 10px; opacity: 0.7;">&lt;-</span>
+              <div class="tile-back tile-ivory" style="padding: 14px 16px; justify-content: center; display: flex; flex-direction: column;">
+                <div class="tile-desc" style="font-size: 12.5px; line-height: 1.5; color: var(--text-plum); font-weight: 600; margin: auto 0; text-align: center;">
+                  Currently reading Dwapar Katha by Sudipta Bhawmik
                 </div>
               </div>
             </div>
@@ -1327,9 +1495,7 @@
                 <div class="mulsy-logo-box">
                   <img src="Mulsy.png" alt="Mulsy" class="mulsy-logo-img">
                 </div>
-                <div class="tile-footer" style="justify-content: flex-end;">
-                  <span style="font-size: 10px; font-weight: 700; color: var(--charcoal);">DETAILS -></span>
-                </div>
+                <div class="tile-footer"></div>
               </div>
               <div class="tile-back tile-charcoal" style="padding: 12px; justify-content: space-between;">
                 <div class="tile-desc" style="font-size: 12px; line-height: 1.45; color: var(--surface-ivory); margin-top: 4px;">
@@ -1344,67 +1510,40 @@
             </div>
           </div>
 
-          <!-- TILE 6: Travel & Hobbies (1 row x 2 cols) -->
+          <!-- TILE 6: Beach & Mountain Photo Showcase (1 row x 2 cols) -->
           <div class="metro-tile col-span-2" onclick="handleTileClick(this)">
             <div class="tile-inner">
-              <div class="tile-front tile-mauve">
-                <div class="tile-top-row">
-                  <span class="tile-badge">TRAVEL & PASSION</span>
-                  <span class="tile-icon" style="font-family: var(--font-mono); font-size: 13px; font-weight: 700;">[TRV]</span>
-                </div>
-                <div>
-                  <div class="tile-title">Wanderlust // 14 Countries</div>
-                  <div class="tile-subtitle">Tokyo • Berlin • Banff • Kyoto</div>
-                </div>
-                <div class="tile-footer">
-                  <span style="font-size: 10px; color: var(--mustard);">35MM FILM & TRAILS</span>
-                  <span style="font-size: 10px;">DETAILS -></span>
-                </div>
-              </div>
-              <div class="tile-back tile-mauve">
-                <div class="tile-top-row">
-                  <span class="tile-badge" style="color: var(--mustard);">OUTSIDE OF CODE</span>
-                  <span style="font-size: 11px; font-family: var(--font-mono); color: var(--mustard);">[35MM]</span>
-                </div>
-                <div class="tile-desc">
-                  When not writing code, you'll find me hiking mountain ridges, collecting vintage cameras, and exploring Japanese retro tech stores.
-                </div>
-                <div class="tile-footer">
-                  <span style="font-size: 10px; color: var(--mustard);">TRAVELER & HIKER</span>
-                  <span style="font-size: 10px; opacity: 0.7;">&lt;-</span>
-                </div>
-              </div>
+              <div class="tile-front tile-travel-beach"></div>
+              <div class="tile-back tile-travel-mountain"></div>
             </div>
           </div>
 
-          <!-- TILE 7: Live Time & Signal (1 row x 1 col) -->
+          <!-- TILE 7: Cinema & Favorite Movie 2026 (1 row x 1 col) -->
           <div class="metro-tile" onclick="handleTileClick(this)">
             <div class="tile-inner">
-              <div class="tile-front tile-charcoal">
-                <div class="tile-top-row">
-                  <span class="tile-badge" style="color: var(--mustard);">TIME MATRIX</span>
-                  <span class="tile-icon" style="font-family: var(--font-mono); font-size: 13px; font-weight: 700; color: var(--mustard);">[TIME]</span>
+              <div class="tile-front tile-charcoal" style="display: flex; flex-direction: column; justify-content: space-between; padding: 14px 12px 10px;">
+                <div></div>
+                <div style="display: flex; align-items: center; justify-content: center; margin: auto 0;">
+                  <div class="clap-icon-wrap" style="color: var(--mustard);">
+                    <svg class="clap-motion-svg" width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                      <g class="clap-base">
+                        <g class="clap-top">
+                          <path d="M20.2 6 3 11l-.9-2.4c-.3-1.1.3-2.2 1.3-2.5l13.5-4c1.1-.3 2.2.3 2.5 1.3Z" />
+                          <path d="m6.2 5.3 3.1 3.9" />
+                          <path d="m12.4 3.4 3.1 4" />
+                        </g>
+                        <path d="M3 11h18v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2Z" />
+                      </g>
+                    </svg>
+                  </div>
                 </div>
-                <div>
-                  <div class="tile-title" style="font-family: var(--font-lcd); font-size: 22px; color: var(--mustard);" id="tile-clock">14:00</div>
-                  <div class="tile-subtitle">UTC+05:30 IST</div>
-                </div>
-                <div class="tile-footer">
-                  <span style="font-size: 10px; color: var(--sky-blue);">SIGNAL: 100%</span>
-                  <span style="font-size: 10px;">-></span>
+                <div class="tile-footer" style="justify-content: center; text-align: center; color: var(--mustard); font-family: var(--font-mono); font-size: 11px; font-weight: 700; width: 100%;">
+                  Cinema // 2026
                 </div>
               </div>
-              <div class="tile-back tile-charcoal">
-                <div class="tile-top-row">
-                  <span class="tile-badge" style="color: var(--mustard);">TIMEZONE & SYNC</span>
-                  <span style="font-size: 11px; font-family: var(--font-mono); color: var(--mustard);">[SYNC]</span>
-                </div>
-                <div class="tile-desc">
-                  Active during APAC & US/EU overlap. Fast asynchronous communication.
-                </div>
-                <div class="tile-footer">
-                  <span style="font-size: 10px; color: var(--mustard);">ALWAYS SYNCED</span>
-                  <span style="font-size: 10px; opacity: 0.7;">&lt;-</span>
+              <div class="tile-back tile-charcoal" style="padding: 12px 14px; justify-content: center; display: flex; flex-direction: column;">
+                <div class="tile-desc" style="font-size: 11px; line-height: 1.45; color: var(--surface-ivory); font-weight: 500; margin: auto 0; text-align: center;">
+                  Favorite movie so far of 2026 — Spiderman : Brand new day . Eagerly awaiting Dune 3 and the new Hunger Games movie
                 </div>
               </div>
             </div>
@@ -1421,9 +1560,7 @@
                   <div class="tile-top-row">
                     <span class="tile-badge" style="background: rgba(47,46,50,0.8); color: var(--mustard); border: 1px solid rgba(255,255,255,0.25); padding: 1px 6px; border-radius: 2px;">CAMPUS</span>
                   </div>
-                  <div class="tile-footer" style="justify-content: flex-end;">
-                    <span style="font-size: 10px; color: var(--mustard); text-shadow: 0 1px 3px rgba(0,0,0,0.95); font-weight: 700;">TAP FOR DETAILS -></span>
-                  </div>
+                  <div class="tile-footer"></div>
                 </div>
               </div>
               <div class="tile-back tile-blue" style="padding: 14px 16px; justify-content: space-between;">
@@ -1438,182 +1575,120 @@
             </div>
           </div>
 
-          <!-- TILE 9: GitHub (1 row x 1 col) -->
+          <!-- TILE 9: Undergrad / Engineering (1 row x 1 col) -->
           <div class="metro-tile" onclick="handleTileClick(this)">
             <div class="tile-inner">
-              <div class="tile-front tile-charcoal">
+              <div class="tile-front tile-pink" style="display: flex; flex-direction: column; justify-content: space-between; padding: 10px 12px 8px;">
                 <div class="tile-top-row">
-                  <span class="tile-badge" style="color: var(--surface-ivory);">CODE REPOS</span>
-                  <span class="tile-icon" style="font-family: var(--font-mono); font-size: 13px; font-weight: 700;">[GH]</span>
+                  <span class="tile-badge" style="color: var(--retro-pink); background: var(--surface-ivory); padding: 1px 6px; border-radius: 2px; font-weight: 700;">UNDERGRAD</span>
                 </div>
-                <div>
-                  <div class="tile-title" style="font-size: 15px;">GitHub</div>
-                  <div class="tile-subtitle">50+ Repos</div>
+                <div style="display: flex; align-items: center; justify-content: center; margin: auto 0;">
+                  <div class="grad-icon-wrap" style="color: var(--surface-ivory);">
+                    <svg class="grad-motion-svg" width="46" height="46" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
+                      <path d="M6 12v5c3 3 9 3 12 0v-5"/>
+                    </svg>
+                  </div>
                 </div>
-                <div class="tile-footer">
-                  <span style="font-size: 10px; color: var(--mustard);">* 1.2K STARS</span>
-                  <span style="font-size: 10px;">-></span>
+                <div class="tile-footer" style="justify-content: center; text-align: center; color: var(--surface-ivory); font-family: var(--font-mono); font-size: 11px; font-weight: 700; width: 100%;">
+                  B.E. // Engineering
                 </div>
               </div>
-              <div class="tile-back tile-charcoal">
-                <div class="tile-top-row">
-                  <span class="tile-badge" style="color: var(--mustard);">OPEN SOURCE</span>
-                  <span style="font-size: 11px; font-family: var(--font-mono); color: var(--mustard);">[GIT]</span>
-                </div>
-                <div class="tile-desc">
-                  Creator of open-source CLI utilities, audio experiments & component libraries.
-                </div>
-                <div class="tile-footer">
-                  <a href="https://github.com" target="_blank" class="tile-cta-link" style="color: var(--mustard);" onclick="event.stopPropagation()">GITHUB -></a>
-                  <span style="font-size: 10px; opacity: 0.7;">&lt;-</span>
+              <div class="tile-back tile-pink" style="padding: 14px 16px; justify-content: center; display: flex; flex-direction: column;">
+                <div class="tile-desc" style="font-size: 12px; line-height: 1.5; color: var(--surface-ivory); font-weight: 600; margin: auto 0; text-align: center;">
+                  B.E. in Computer Science and Engineering from KLE Technological University, Hubli
                 </div>
               </div>
             </div>
           </div>
 
-          <!-- TILE 10: LinkedIn (1 row x 1 col) -->
+          <!-- TILE 10: Certifications (1 row x 1 col) -->
           <div class="metro-tile" onclick="handleTileClick(this)">
             <div class="tile-inner">
-              <div class="tile-front tile-classic-blue">
-                <div class="tile-top-row">
-                  <span class="tile-badge">NETWORK</span>
-                  <span class="tile-icon" style="font-family: var(--font-mono); font-size: 13px; font-weight: 700;">[IN]</span>
+              <div class="tile-front tile-charcoal" style="display: flex; flex-direction: column; justify-content: space-between; padding: 14px 12px 10px;">
+                <div></div>
+                <div style="display: flex; align-items: center; justify-content: center; margin: auto 0;">
+                  <div class="cert-icon-wrap" style="color: var(--mustard);">
+                    <svg class="cert-motion-svg" width="54" height="54" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M15 22L14.3066 23.0401C14.6902 23.2958 15.1834 23.3196 15.5898 23.1021C15.9963 22.8846 16.25 22.461 16.25 22H15ZM12 20L12.6934 18.96C12.2735 18.68 11.7265 18.68 11.3066 18.96L12 20ZM9.00002 22H7.75002C7.75002 22.461 8.00375 22.8846 8.41019 23.1021C8.81664 23.3196 9.30982 23.2958 9.69339 23.0401L9.00002 22ZM8.75086 3.53713L8.65048 4.7831L8.75086 3.53713ZM10.4347 2.83967L9.48267 2.02962L9.48267 2.02962L10.4347 2.83967ZM6.53191 5.68606L5.28595 5.78644L6.53191 5.68606ZM8.68606 3.53191L8.78644 2.28595L8.68606 3.53191ZM5.83967 7.43468L6.64972 8.38668L5.83967 7.43468ZM6.53713 5.75086L7.7831 5.65048L6.53713 5.75086ZM5.79016 10.5232L4.98011 11.4752L4.98012 11.4752L5.79016 10.5232ZM5.79016 7.4768L4.98012 6.52479L4.98011 6.5248L5.79016 7.4768ZM6.53713 12.2492L5.29117 12.1488L5.29117 12.1488L6.53713 12.2492ZM5.83967 10.5654L6.64972 9.61335L6.64972 9.61334L5.83967 10.5654ZM8.68606 14.4681L8.78644 15.7141H8.78644L8.68606 14.4681ZM6.53191 12.314L7.77788 12.4143L7.77788 12.4143L6.53191 12.314ZM10.4347 15.1604L11.3867 14.3503L11.3867 14.3503L10.4347 15.1604ZM8.75086 14.4629L8.65048 13.2169H8.65048L8.75086 14.4629ZM13.5232 15.2099L14.4752 16.0199L14.4752 16.0199L13.5232 15.2099ZM10.4768 15.2099L9.52479 16.0199L9.5248 16.0199L10.4768 15.2099ZM15.2492 14.4629L15.3496 13.2169H15.3496L15.2492 14.4629ZM13.5654 15.1604L12.6133 14.3503L12.6133 14.3503L13.5654 15.1604ZM17.4681 12.314L18.7141 12.2136V12.2136L17.4681 12.314ZM15.314 14.4681L15.2136 15.7141H15.2136L15.314 14.4681ZM18.1604 10.5654L18.9704 11.5174L18.9704 11.5174L18.1604 10.5654ZM17.4629 12.2492L16.2169 12.3496V12.3496L17.4629 12.2492ZM18.2099 7.4768L19.0199 6.5248L19.0199 6.5248L18.2099 7.4768ZM18.2099 10.5232L17.3998 9.57122L17.3998 9.57122L18.2099 10.5232ZM17.4629 5.75086L16.2169 5.65048V5.65048L17.4629 5.75086ZM18.1604 7.43468L17.3503 8.38668L17.3503 8.38668L18.1604 7.43468ZM15.314 3.53191L15.2136 2.28595L15.2136 2.28595L15.314 3.53191ZM17.4681 5.68606L18.7141 5.78644V5.78644L17.4681 5.68606ZM13.5654 2.83967L14.5174 2.02962L14.5174 2.02962L13.5654 2.83967ZM15.2492 3.53713L15.3496 4.7831L15.3496 4.7831L15.2492 3.53713ZM13.5232 2.79016L12.5712 3.60021L12.5712 3.60022L13.5232 2.79016ZM10.4768 2.79016L11.4288 3.60021L11.4288 3.60021L10.4768 2.79016ZM9.00002 14.4584L9.05526 13.2096L9.00002 14.4584ZM15.6934 20.96L12.6934 18.96L11.3066 21.0401L14.3066 23.0401L15.6934 20.96ZM11.3066 18.96L8.30664 20.96L9.69339 23.0401L12.6934 21.0401L11.3066 18.96ZM12.5712 3.60022L12.6134 3.64973L14.5174 2.02962L14.4752 1.98011L12.5712 3.60022ZM15.3496 4.7831L15.4144 4.77788L15.2136 2.28595L15.1488 2.29117L15.3496 4.7831ZM16.2222 5.58568L16.2169 5.65048L18.7089 5.85124L18.7141 5.78644L16.2222 5.58568ZM17.3503 8.38668L17.3998 8.42881L19.0199 6.5248L18.9704 6.48267L17.3503 8.38668ZM17.3998 9.57122L17.3503 9.61335L18.9704 11.5174L19.0199 11.4752L17.3998 9.57122ZM16.2169 12.3496L16.2222 12.4144L18.7141 12.2136L18.7089 12.1488L16.2169 12.3496ZM15.4144 13.2222L15.3496 13.2169L15.1488 15.7089L15.2136 15.7141L15.4144 13.2222ZM12.6133 14.3503L12.5712 14.3998L14.4752 16.0199L14.5174 15.9704L12.6133 14.3503ZM11.4288 14.3998L11.3867 14.3503L9.48266 15.9704L9.52479 16.0199L11.4288 14.3998ZM8.65048 13.2169L8.58568 13.2222L8.78644 15.7141L8.85124 15.7089L8.65048 13.2169ZM7.77788 12.4143L7.7831 12.3495L5.29117 12.1488L5.28595 12.2136L7.77788 12.4143ZM6.64972 9.61334L6.60021 9.57122L4.98012 11.4752L5.02963 11.5174L6.64972 9.61334ZM6.60021 8.42881L6.64972 8.38669L5.02963 6.48266L4.98012 6.52479L6.60021 8.42881ZM7.7831 5.65048L7.77788 5.58568L5.28595 5.78644L5.29117 5.85124L7.7831 5.65048ZM8.58568 4.77788L8.65048 4.7831L8.85124 2.29117L8.78644 2.28595L8.58568 4.77788ZM11.3867 3.64972L11.4288 3.60021L9.5248 1.98011L9.48267 2.02962L11.3867 3.64972ZM8.65048 4.7831C9.69169 4.86698 10.7098 4.44528 11.3867 3.64972L9.48267 2.02962C9.32645 2.21321 9.09152 2.31053 8.85124 2.29117L8.65048 4.7831ZM7.77788 5.58568C7.74077 5.12504 8.12504 4.74077 8.58568 4.77788L8.78644 2.28595C6.79035 2.12514 5.12514 3.79035 5.28595 5.78644L7.77788 5.58568ZM6.64972 8.38668C7.44528 7.70975 7.86698 6.69169 7.7831 5.65048L5.29117 5.85124C5.31053 6.09152 5.21321 6.32645 5.02962 6.48267L6.64972 8.38668ZM6.60021 9.57122C6.24825 9.27174 6.24825 8.72829 6.60021 8.42881L4.98011 6.5248C3.45495 7.82253 3.45495 10.1775 4.98011 11.4752L6.60021 9.57122ZM7.7831 12.3496C7.86698 11.3083 7.44528 10.2903 6.64972 9.61335L5.02962 11.5174C5.21321 11.6736 5.31053 11.9085 5.29117 12.1488L7.7831 12.3496ZM8.58568 13.2222C8.12504 13.2593 7.74077 12.875 7.77788 12.4143L5.28595 12.2136C5.12514 14.2097 6.79035 15.8749 8.78644 15.7141L8.58568 13.2222ZM12.5712 14.3998C12.2717 14.7518 11.7283 14.7518 11.4288 14.3998L9.5248 16.0199C10.8225 17.5451 13.1775 17.5451 14.4752 16.0199L12.5712 14.3998ZM16.2222 12.4143C16.2593 12.875 15.875 13.2593 15.4143 13.2222L15.2136 15.7141C17.2097 15.8749 18.8749 14.2097 18.7141 12.2136L16.2222 12.4143ZM17.3503 9.61335C16.5547 10.2903 16.1331 11.3083 16.2169 12.3496L18.7089 12.1488C18.6895 11.9085 18.7868 11.6736 18.9704 11.5174L17.3503 9.61335ZM17.3998 8.42881C17.7518 8.72829 17.7518 9.27174 17.3998 9.57122L19.0199 11.4752C20.5451 10.1775 20.5451 7.82253 19.0199 6.5248L17.3998 8.42881ZM16.2169 5.65048C16.1331 6.69169 16.5547 7.70975 17.3503 8.38668L18.9704 6.48267C18.7868 6.32645 18.6895 6.09152 18.7089 5.85124L16.2169 5.65048ZM15.4144 4.77788C15.875 4.74077 16.2593 5.12504 16.2222 5.58568L18.7141 5.78644C18.8749 3.79035 17.2097 2.12514 15.2136 2.28595L15.4144 4.77788ZM12.6133 3.64972C13.2903 4.44528 14.3083 4.86698 15.3496 4.7831L15.1488 2.29117C14.9085 2.31053 14.6736 2.21321 14.5174 2.02962L12.6133 3.64972ZM14.4752 1.98011C13.1775 0.454954 10.8225 0.454952 9.5248 1.98011L11.4288 3.60021C11.7283 3.24825 12.2717 3.24825 12.5712 3.60021L14.4752 1.98011ZM11.3867 14.3503C10.7978 13.6583 9.95101 13.2492 9.05526 13.2096L8.94477 15.7072C9.15141 15.7163 9.34686 15.8108 9.48267 15.9704L11.3867 14.3503ZM9.05526 13.2096C8.9211 13.2037 8.78593 13.206 8.65048 13.2169L8.85124 15.7089C8.88266 15.7063 8.91388 15.7058 8.94477 15.7072L9.05526 13.2096ZM10.25 22V14.4584H7.75002V22H10.25ZM15.3496 13.2169C15.2141 13.206 15.0789 13.2037 14.9448 13.2096L15.0553 15.7072C15.0861 15.7058 15.1174 15.7063 15.1488 15.7089L15.3496 13.2169ZM14.9448 13.2096C14.049 13.2492 13.2022 13.6583 12.6133 14.3503L14.5174 15.9704L14.6532 15.8108 14.8486 15.7163 15.0553 15.7072L14.9448 13.2096ZM13.75 14.4584V22H16.25V14.4584H13.75Z" fill="currentColor"/>
+                      <path d="M14 8L11 11L10 10" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </div>
                 </div>
-                <div>
-                  <div class="tile-title" style="font-size: 15px;">LinkedIn</div>
-                  <div class="tile-subtitle">/in/sumitkumrsingh</div>
-                </div>
-                <div class="tile-footer">
-                  <span style="font-size: 10px; color: var(--mustard);">CONNECT</span>
-                  <span style="font-size: 10px;">-></span>
+                <div class="tile-footer" style="justify-content: center; text-align: center; color: var(--mustard); font-family: var(--font-mono); font-size: 11px; font-weight: 700; width: 100%;">
+                  Certifications
                 </div>
               </div>
-              <div class="tile-back tile-classic-blue">
-                <div class="tile-top-row">
-                  <span class="tile-badge" style="color: var(--mustard);">PROFESSIONAL</span>
-                  <span style="font-size: 11px; font-family: var(--font-mono); color: var(--mustard);">[NET]</span>
-                </div>
-                <div class="tile-desc">
-                  Connect on LinkedIn for career opportunities, technical discussions & engineering collaboration.
-                </div>
-                <div class="tile-footer">
-                  <a href="https://www.linkedin.com/in/sumitkumrsingh/" target="_blank" class="tile-cta-link" style="color: var(--mustard);" onclick="event.stopPropagation()">VIEW PROFILE -></a>
-                  <span style="font-size: 10px; opacity: 0.7;">&lt;-</span>
-                </div>
+              <div class="tile-back tile-charcoal" style="padding: 10px 10px; display: flex; flex-direction: column; justify-content: center;">
+                <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 4px; font-size: 9px; line-height: 1.25; color: var(--surface-ivory); font-weight: 500;">
+                  <li style="display: flex; align-items: flex-start; gap: 4px;">
+                    <span style="color: var(--mustard); font-weight: bold; flex-shrink: 0;">•</span>
+                    <span>IBM AI Product Manager Professional Certificate</span>
+                  </li>
+                  <li style="display: flex; align-items: flex-start; gap: 4px;">
+                    <span style="color: var(--mustard); font-weight: bold; flex-shrink: 0;">•</span>
+                    <span>AWS Certified AI Practitioner</span>
+                  </li>
+                  <li style="display: flex; align-items: flex-start; gap: 4px;">
+                    <span style="color: var(--mustard); font-weight: bold; flex-shrink: 0;">•</span>
+                    <span>Elastic Compute Cloud (EC2 - Linux) Subject Matter Expert</span>
+                  </li>
+                  <li style="display: flex; align-items: flex-start; gap: 4px;">
+                    <span style="color: var(--mustard); font-weight: bold; flex-shrink: 0;">•</span>
+                    <span>B2B Marketing on LinkedIn</span>
+                  </li>
+                </ul>
               </div>
             </div>
           </div>
 
-          <!-- TILE 11: Music & Synth Hobbies (1 row x 1 col) -->
+          <!-- TILE 11: LinkedIn (1 row x 1 col) -->
           <div class="metro-tile" onclick="handleTileClick(this)">
             <div class="tile-inner">
-              <div class="tile-front tile-pink">
+              <div class="tile-front tile-classic-blue" style="display: flex; flex-direction: column; justify-content: space-between; padding: 10px 12px 8px;">
                 <div class="tile-top-row">
-                  <span class="tile-badge">CREATIVE</span>
-                  <span class="tile-icon" style="font-family: var(--font-mono); font-size: 13px; font-weight: 700;">[AUDIO]</span>
+                  <span class="tile-badge" style="color: var(--classic-blue); background: var(--surface-ivory); padding: 1px 6px; border-radius: 2px; font-weight: 700;">CONNECT WITH ME</span>
                 </div>
-                <div>
-                  <div class="tile-title" style="font-size: 15px;">Synth Lab</div>
-                  <div class="tile-subtitle">Chiptune & Lo-Fi</div>
+                <div style="display: flex; align-items: center; justify-content: center; margin: auto 0;">
+                  <div class="linkedin-icon-wrap" style="color: #FFFFFF;">
+                    <svg class="linkedin-motion-svg" width="46" height="46" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+                      <rect height="12" width="4" x="2" y="9" />
+                      <circle cx="4" cy="4" r="2" />
+                    </svg>
+                  </div>
                 </div>
-                <div class="tile-footer">
-                  <span style="font-size: 10px;">HOBBY</span>
-                  <span style="font-size: 10px;">-></span>
+                <div class="tile-footer" style="justify-content: center; text-align: center; color: #FFFFFF; font-family: var(--font-mono); font-size: 11px; font-weight: 700; width: 100%;">
+                  LinkedIn
                 </div>
               </div>
-              <div class="tile-back tile-pink">
-                <div class="tile-top-row">
-                  <span class="tile-badge">SOUND DESIGN</span>
-                  <span style="font-size: 11px; font-family: var(--font-mono);">[SYNTH]</span>
-                </div>
-                <div class="tile-desc">
-                  Synthesizing 8-bit soundscapes with FM synthesizers and tracker music.
-                </div>
-                <div class="tile-footer">
-                  <span style="font-size: 10px; font-weight: bold;">CASIO CZ-101</span>
-                  <span style="font-size: 10px; opacity: 0.7;">&lt;-</span>
-                </div>
+              <div class="tile-back tile-classic-blue" style="padding: 14px; display: flex; align-items: center; justify-content: center; height: 100%;">
+                <a href="https://www.linkedin.com/in/sumitkumrsingh/" target="_blank" rel="noopener noreferrer" class="tile-cta-link" style="color: var(--charcoal); background: var(--mustard); font-family: var(--font-mono); font-weight: 700; border: 2px solid var(--charcoal); padding: 10px 8px; font-size: 11px; line-height: 1.35; border-radius: var(--radius-sm); display: block; text-align: center; width: 100%; word-break: break-word; text-decoration: none; box-shadow: 2px 2px 0px rgba(0,0,0,0.4);" onclick="event.stopPropagation()">
+                  linkedin.com/in/sumitkumrsingh/
+                </a>
               </div>
             </div>
           </div>
 
-          <!-- TILE 12: Say Hello / Contact (1 row x 1 col) -->
+          <!-- TILE 12: Favorite Quote (1 row x 1 col) -->
           <div class="metro-tile" onclick="handleTileClick(this)">
             <div class="tile-inner">
-              <div class="tile-front tile-yellow">
+              <div class="tile-front tile-yellow" style="display: flex; flex-direction: column; justify-content: space-between; padding: 12px 14px 10px;">
                 <div class="tile-top-row">
-                  <span class="tile-badge">TRANSMISSION</span>
-                  <span class="tile-icon" style="font-family: var(--font-mono); font-size: 13px; font-weight: 700;">[MSG]</span>
+                  <span class="tile-badge" style="color: var(--mustard); background: var(--charcoal); padding: 1px 6px; border-radius: 2px;">FAVORITE QUOTE</span>
                 </div>
-                <div>
-                  <div class="tile-title" style="font-size: 15px;">Say Hello</div>
-                  <div class="tile-subtitle">Get in Touch</div>
+                <div style="margin: auto 0; text-align: left;">
+                  <div style="font-size: 19px; font-weight: 700; line-height: 1.25; color: var(--charcoal); font-family: var(--font-body);">
+                    "You'll Never Walk Alone"
+                  </div>
                 </div>
-                <div class="tile-footer">
-                  <span style="font-size: 10px;">MESSAGE</span>
-                  <span style="font-size: 10px;">-></span>
+                <div class="tile-footer"></div>
+              </div>
+              <div class="tile-back tile-yellow" style="padding: 14px 16px; justify-content: center; display: flex; flex-direction: column;">
+                <div class="tile-desc" style="font-size: 12px; line-height: 1.5; color: var(--charcoal); font-weight: 600; margin: auto 0; text-align: center;">
+                  I am a football fan and love watching Liverpool Football club play (most of the times)
                 </div>
               </div>
-              <div class="tile-back tile-yellow">
-                <div class="tile-top-row">
-                  <span class="tile-badge">COMMUNICATION</span>
-                  <span style="font-size: 11px; font-family: var(--font-mono);">[TRANSMIT]</span>
-                </div>
-                <div class="tile-desc">
-                  Got an idea or looking for a builder? Let's chat!
-                </div>
-                <div class="tile-footer">
-                  <a href="#contact" class="tile-cta-link" style="color: var(--charcoal);" onclick="event.stopPropagation()">CONTACT ME -></a>
-                  <span style="font-size: 10px; opacity: 0.7;">&lt;-</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ==========================================================================
-         FEATURED MEDIA & RETRO CRT MONITOR
-         ========================================================================== -->
-    <section id="media">
-      <div class="section-title-wrap">
-        <h2 class="section-title">
-          <span class="section-num">01</span>
-          <span>CRT MEDIA STREAM // ROUTE DEMO</span>
-        </h2>
-        <span style="font-family: var(--font-mono); font-size: 12px; color: var(--text-plum);">
-          SOURCE: route_vid.webm
-        </span>
-      </div>
-
-      <div class="crt-monitor-card">
-        <div class="crt-bezel">
-          <div class="crt-header">
-            <div class="rec-indicator">
-              <span class="rec-dot"></span>
-              <span>PLAYBACK ACTIVE</span>
-            </div>
-            <div>CHANNEL 03 // 60 FPS HD</div>
-            <div>MODE: STEREO</div>
-          </div>
-
-          <!-- Video Showcase -->
-          <div class="video-container">
-            <video class="video-element" autoplay loop muted playsinline controls>
-              <source src="route_vid.webm" type="video/webm">
-              Your browser does not support the video tag.
-            </video>
-          </div>
-
-          <div class="crt-controls">
-            <div class="crt-info-text">
-              // ROUTE VISUALIZER FEED // CASIO DISPLAY MATRIX
-            </div>
-            <div style="display: flex; gap: 8px;">
-              <button class="btn btn-accent" style="padding: 4px 10px; font-size: 11px;" onclick="toggleMuteVideo()">
-                TOGGLE AUDIO
-              </button>
             </div>
           </div>
         </div>
@@ -1626,7 +1701,7 @@
     <section id="projects">
       <div class="section-title-wrap">
         <h2 class="section-title">
-          <span class="section-num">02</span>
+          <span class="section-num">01</span>
           <span>SHIPPED PROJECTS & EXPERIMENTS</span>
         </h2>
         <span style="font-family: var(--font-mono); font-size: 12px; color: var(--text-plum);">
@@ -1739,7 +1814,7 @@
     <section class="skills-section">
       <div class="section-title-wrap">
         <h2 class="section-title">
-          <span class="section-num">03</span>
+          <span class="section-num">02</span>
           <span>TECH STACK & MEMORY BANKS</span>
         </h2>
         <span style="font-family: var(--font-mono); font-size: 12px; color: var(--text-plum);">
@@ -1831,7 +1906,7 @@
     <section id="experience">
       <div class="section-title-wrap">
         <h2 class="section-title">
-          <span class="section-num">04</span>
+          <span class="section-num">03</span>
           <span>PROFESSIONAL EXPERIENCE</span>
         </h2>
         <span style="font-family: var(--font-mono); font-size: 12px; color: var(--text-plum);">
@@ -1937,7 +2012,7 @@
     <section id="contact">
       <div class="section-title-wrap">
         <h2 class="section-title">
-          <span class="section-num">05</span>
+          <span class="section-num">04</span>
           <span>COMMUNICATION CONSOLE</span>
         </h2>
         <span style="font-family: var(--font-mono); font-size: 12px; color: var(--text-plum);">
@@ -2072,42 +2147,107 @@
     updateClock();
 
     // 3. Nokia Lumia / Windows 8 Metro Live Tiles Flip Mechanics
+    let currentAutoFlippingTile = null;
+
     function handleTileClick(tile) {
       playBeep(720, 0.05, 'triangle');
+      
+      // Clear any pending un-flip timer if user clicks again
+      if (tile.clickTimeout) {
+        clearTimeout(tile.clickTimeout);
+        tile.clickTimeout = null;
+      }
+
       const isFlipped = tile.classList.toggle('flipped');
       
-      // Pin tile briefly on click so user can read details without auto-flip interrupting
-      tile.dataset.pinned = 'true';
-      setTimeout(() => {
+      if (isFlipped) {
+        // Pin tile so user can read details without auto-flip interrupting
+        tile.dataset.pinned = 'true';
+        // Auto-unflip back to front after 8 seconds of inactivity
+        tile.clickTimeout = setTimeout(() => {
+          delete tile.dataset.pinned;
+          tile.classList.remove('flipped');
+          tile.clickTimeout = null;
+        }, 8000);
+      } else {
         delete tile.dataset.pinned;
-      }, 7000);
+      }
     }
 
-    // Auto-flip a random tile every 3 seconds
+    // Auto-flip with a fair, unbiased Fisher-Yates shuffled queue & strictly sequential single-tile rotation
     function initAutoFlip() {
-      setInterval(() => {
-        const tiles = Array.from(document.querySelectorAll('.metro-tile'));
-        if (!tiles.length) return;
+      let shuffleDeck = [];
+      let flipTimer = null;
 
-        // Choose from unflipped tiles that are not pinned by user click and not set to manual flip only
-        const availableTiles = tiles.filter(t => !t.classList.contains('flipped') && t.dataset.pinned !== 'true' && t.dataset.noAutoflip !== 'true');
-        if (!availableTiles.length) return;
+      const FLIP_INTERVAL = 4000;  // 4s pause after a tile flips back before next flip
+      const FLIP_DURATION = 5000;  // 5s stay flipped duration
 
-        const randomTile = availableTiles[Math.floor(Math.random() * availableTiles.length)];
-        randomTile.classList.add('flipped');
+      function getEligibleTiles() {
+        return Array.from(document.querySelectorAll('.metro-tile')).filter(
+          t => t.dataset.noAutoflip !== 'true'
+        );
+      }
+
+      function refillDeck() {
+        const eligible = getEligibleTiles();
+        // Fisher-Yates shuffle
+        for (let i = eligible.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [eligible[i], eligible[j]] = [eligible[j], eligible[i]];
+        }
+        shuffleDeck = eligible;
+      }
+
+      function runFlipCycle() {
+        // Pause auto-flip if any tile is pinned by user click or if one is currently in active flip
+        const allTiles = Array.from(document.querySelectorAll('.metro-tile'));
+        const isAnyPinned = allTiles.some(t => t.dataset.pinned === 'true');
         
-        // Subtle tactile flip blip
-        if (soundEnabled) {
-          playBeep(960, 0.02, 'sine');
+        if (isAnyPinned || currentAutoFlippingTile) {
+          flipTimer = setTimeout(runFlipCycle, 1500);
+          return;
         }
 
-        // Return to front after 4 seconds if not pinned
-        setTimeout(() => {
-          if (randomTile.dataset.pinned !== 'true') {
-            randomTile.classList.remove('flipped');
+        if (!shuffleDeck.length) {
+          refillDeck();
+        }
+
+        // Find next tile in deck that is not currently flipped or pinned
+        let tileToFlip = null;
+        while (shuffleDeck.length > 0) {
+          const candidate = shuffleDeck.shift();
+          if (!candidate.classList.contains('flipped') && candidate.dataset.pinned !== 'true') {
+            tileToFlip = candidate;
+            break;
           }
-        }, 4000);
-      }, 3000);
+        }
+
+        if (tileToFlip) {
+          currentAutoFlippingTile = tileToFlip;
+          tileToFlip.classList.add('flipped');
+          if (soundEnabled) {
+            playBeep(960, 0.02, 'sine');
+          }
+
+          // Stay flipped for exactly 5 seconds
+          setTimeout(() => {
+            // Return to front face if not pinned by user
+            if (tileToFlip.dataset.pinned !== 'true') {
+              tileToFlip.classList.remove('flipped');
+            }
+            currentAutoFlippingTile = null;
+
+            // Once flipped back, wait 4 seconds before triggering next flip
+            flipTimer = setTimeout(runFlipCycle, FLIP_INTERVAL);
+          }, FLIP_DURATION);
+        } else {
+          currentAutoFlippingTile = null;
+          flipTimer = setTimeout(runFlipCycle, FLIP_INTERVAL);
+        }
+      }
+
+      // Initial start after 4 seconds
+      flipTimer = setTimeout(runFlipCycle, FLIP_INTERVAL);
     }
     initAutoFlip();
 
@@ -2159,16 +2299,7 @@
       btn.style.color = 'var(--charcoal)';
     }
 
-    // 5. Video mute toggle
-    function toggleMuteVideo() {
-      const vid = document.querySelector('.video-element');
-      if (vid) {
-        vid.muted = !vid.muted;
-        playBeep(vid.muted ? 400 : 800, 0.08);
-      }
-    }
-
-    // 6. Contact Form Handler
+    // 5. Contact Form Handler
     function handleContactSubmit(e) {
       e.preventDefault();
       playBeep(880, 0.1);
