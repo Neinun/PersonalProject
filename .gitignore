@@ -1,18 +1,3 @@
-# Media files (Images & Videos)
-*.png
-*.jpg
-*.jpeg
-*.gif
-*.webm
-*.mp4
-*.mov
-*.webp
-*.svg
-*.ico
-
-# Notes & palette files
-*.txt
-
 # Environment variables & secrets
 .env
 .env.*
@@ -30,3 +15,4 @@ desktop.ini
 .idea/
 *.tmp
 *.log
+
