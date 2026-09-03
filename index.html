@@ -189,6 +189,28 @@
       box-shadow: var(--shadow-retro-sm);
     }
 
+    .mobile-menu-btn {
+      display: none;
+      background: var(--charcoal);
+      color: var(--mustard);
+      border: 2px solid var(--charcoal);
+      border-radius: var(--radius-sm);
+      padding: 5px 11px;
+      font-family: var(--font-mono);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      cursor: pointer;
+      box-shadow: var(--shadow-retro-sm);
+      transition: all 0.15s ease;
+    }
+
+    .mobile-menu-btn:hover, .mobile-menu-btn:active {
+      background: var(--retro-pink);
+      color: #FFF;
+      transform: translate(-1px, -1px);
+    }
+
     /* ==========================================================================
        HERO SECTION: NOKIA LUMIA / WINDOWS 8 METRO LIVE TILES GRID
        ========================================================================== */
@@ -795,23 +817,275 @@
       animation: pulse 1.5s infinite;
     }
 
-    /* Responsive Grid for Tablets & Mobile */
-    @media (max-width: 960px) {
+    /* ==========================================================================
+       RESPONSIVE & MOBILE OPTIMIZATIONS (< 1000px)
+       ========================================================================== */
+    @media (max-width: 999.98px) {
+      body {
+        overflow-x: hidden;
+      }
+
+      .container {
+        padding: 0 14px;
+      }
+
+      /* Fixed Top Navigation Bar with [MENU] Dropdown */
+      .topbar-content {
+        position: relative;
+        flex-wrap: nowrap;
+        gap: 8px;
+      }
+
+      .mobile-menu-btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+      }
+
+      .nav-actions {
+        display: none;
+        position: absolute;
+        top: calc(100% + 8px);
+        left: 0;
+        right: 0;
+        width: 100%;
+        background: var(--surface-ivory);
+        border: var(--border-thick);
+        border-radius: var(--radius-md);
+        box-shadow: var(--shadow-retro-lg);
+        padding: 12px;
+        z-index: 1001;
+      }
+
+      .nav-actions.is-open {
+        display: block;
+        animation: menuSlideDown 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+
+      .nav-links {
+        flex-direction: column;
+        gap: 8px;
+        width: 100%;
+      }
+
+      .nav-link {
+        display: block;
+        padding: 9px 12px;
+        background: var(--bg-cream);
+        border: 1px solid var(--charcoal);
+        border-radius: var(--radius-sm);
+        font-size: 13px;
+        font-weight: 700;
+        text-align: center;
+      }
+
+      .nav-link:hover, .nav-link:active {
+        background: var(--retro-pink);
+        color: #FFFFFF;
+      }
+
+      /* 2-Column Mobile Nokia Lumia Grid */
+      .hero-card {
+        padding: 16px 14px;
+      }
+
       .metro-grid {
-        grid-template-columns: repeat(3, 1fr);
-        grid-template-rows: auto;
+        grid-template-columns: repeat(2, 1fr);
+        grid-auto-rows: 155px;
+        gap: 10px;
       }
-      .col-span-2 {
-        grid-column: span 1;
+
+      /* Responsive Tile Order Matching Screenshots 2 & 3:
+         1: Profile (full width, span 2)
+         2: Campus Video (full width, span 2)
+         3: Samsung Summer Intern (full width, span 2)
+         4: AWS Work Experience (col 1)
+         5: Book Shelf (col 2)
+         6: Mulsy Project (col 1)
+         7: Cinema (col 2)
+         8: Beach Photo (full width, span 2)
+         9: Undergrad Engineering (col 1)
+         10: Certifications (col 2)
+         11: LinkedIn (col 1)
+         12: Favorite Quote (col 2)
+      */
+      .tile-item-profile {
+        order: 1;
+        grid-column: span 2 !important;
+        grid-row: span 1 !important;
       }
-      .row-span-2 {
-        grid-row: span 1;
+
+      .tile-item-campus {
+        order: 2;
+        grid-column: span 2 !important;
+        grid-row: span 1 !important;
+      }
+
+      .tile-item-samsung {
+        order: 3;
+        grid-column: span 2 !important;
+        grid-row: span 1 !important;
+      }
+
+      .tile-item-aws {
+        order: 4;
+        grid-column: span 1 !important;
+        grid-row: span 1 !important;
+      }
+
+      .tile-item-bookshelf {
+        order: 5;
+        grid-column: span 1 !important;
+        grid-row: span 1 !important;
+      }
+
+      .tile-item-mulsy {
+        order: 6;
+        grid-column: span 1 !important;
+        grid-row: span 1 !important;
+      }
+
+      .tile-item-cinema {
+        order: 7;
+        grid-column: span 1 !important;
+        grid-row: span 1 !important;
+      }
+
+      .tile-item-beach {
+        order: 8;
+        grid-column: span 2 !important;
+        grid-row: span 1 !important;
+      }
+
+      .tile-item-undergrad {
+        order: 9;
+        grid-column: span 1 !important;
+        grid-row: span 1 !important;
+      }
+
+      .tile-item-certs {
+        order: 10;
+        grid-column: span 1 !important;
+        grid-row: span 1 !important;
+      }
+
+      .tile-item-linkedin {
+        order: 11;
+        grid-column: span 1 !important;
+        grid-row: span 1 !important;
+      }
+
+      .tile-item-quote {
+        order: 12;
+        grid-column: span 1 !important;
+        grid-row: span 1 !important;
+      }
+
+      /* Text Sizing & Overflow Protection (Fixes Screenshot 5 text clipping) */
+      .tile-front, .tile-back {
+        padding: 10px 12px;
+      }
+
+      .tile-back {
+        overflow-y: auto;
+        scrollbar-width: none;
+      }
+
+      .tile-back::-webkit-scrollbar {
+        display: none;
+      }
+
+      .tile-title {
+        font-size: 19px !important;
+      }
+
+      .tile-subtitle {
+        font-size: 12px !important;
+      }
+
+      .tile-desc {
+        font-size: 11.5px !important;
+        line-height: 1.4 !important;
+      }
+
+      .profile-back-header {
+        margin-bottom: 6px;
+        gap: 10px;
+      }
+
+      .profile-back-header img {
+        width: 36px;
+        height: 36px;
+      }
+
+      .tile-item-certs .tile-back {
+        padding: 10px 8px !important;
+      }
+
+      .tile-item-certs ul {
+        gap: 5px !important;
+        font-size: 9.5px !important;
+        line-height: 1.3 !important;
       }
     }
 
-    @media (max-width: 600px) {
+    @media (max-width: 480px) {
+      .container {
+        padding: 0 10px;
+      }
+
+      .hero-card {
+        padding: 14px 10px;
+      }
+
+      .lcd-module {
+        padding: 4px 8px;
+        gap: 6px;
+      }
+
+      .lcd-time {
+        font-size: 20px;
+        letter-spacing: 1px;
+      }
+
+      .lcd-indicator, .lcd-date {
+        font-size: 10px;
+      }
+
+      .mobile-menu-btn {
+        padding: 4px 9px;
+        font-size: 12px;
+      }
+
       .metro-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, 1fr);
+        grid-auto-rows: 150px;
+        gap: 8px;
+      }
+
+      .tile-front, .tile-back {
+        padding: 8px 10px;
+      }
+
+      .tile-title {
+        font-size: 17px !important;
+      }
+
+      .tile-desc {
+        font-size: 11px !important;
+        line-height: 1.35 !important;
+      }
+    }
+
+    @keyframes menuSlideDown {
+      from {
+        opacity: 0;
+        transform: translateY(-8px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
       }
     }
 
@@ -1227,15 +1501,20 @@
           <span class="lcd-date" id="live-date">2026.09.01</span>
         </div>
 
-        <!-- Nav Links (Right) -->
-        <div class="nav-actions">
+        <!-- Mobile Retro [MENU] Toggle Button -->
+        <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Toggle Navigation Menu" onclick="toggleMobileMenu()">
+          <span>[MENU]</span>
+        </button>
+
+        <!-- Nav Links (Right on Desktop, Dropdown on Mobile) -->
+        <div class="nav-actions" id="nav-actions">
           <ul class="nav-links">
-            <li><a href="#about" class="nav-link">ABOUT</a></li>
-            <li><a href="#experience" class="nav-link">EXPERIENCE</a></li>
-            <li><a href="#education" class="nav-link">EDUCATION</a></li>
-            <li><a href="#skills" class="nav-link">SKILLS</a></li>
-            <li><a href="#certifications" class="nav-link">CERTIFICATIONS</a></li>
-            <li><a href="#contact" class="nav-link">CONTACT</a></li>
+            <li><a href="#about" class="nav-link" onclick="closeMobileMenu()">ABOUT</a></li>
+            <li><a href="#experience" class="nav-link" onclick="closeMobileMenu()">EXPERIENCE</a></li>
+            <li><a href="#education" class="nav-link" onclick="closeMobileMenu()">EDUCATION</a></li>
+            <li><a href="#skills" class="nav-link" onclick="closeMobileMenu()">SKILLS</a></li>
+            <li><a href="#certifications" class="nav-link" onclick="closeMobileMenu()">CERTIFICATIONS</a></li>
+            <li><a href="#contact" class="nav-link" onclick="closeMobileMenu()">CONTACT</a></li>
           </ul>
         </div>
       </div>
@@ -1257,7 +1536,7 @@
 
         <div class="metro-grid">
           <!-- TILE 1: Profile & Bio (2 rows x 2 cols) -->
-          <div class="metro-tile col-span-2 row-span-2" onclick="handleTileClick(this)">
+          <div class="metro-tile tile-item-profile col-span-2 row-span-2" onclick="handleTileClick(this)">
             <div class="tile-inner">
               <div class="tile-front tile-profile-front">
                 <div class="profile-front-content">
@@ -1287,7 +1566,7 @@
           </div>
 
           <!-- TILE 2: Samsung Summer Internship (1 row x 2 cols) -->
-          <div class="metro-tile col-span-2" onclick="handleTileClick(this)">
+          <div class="metro-tile tile-item-samsung col-span-2" onclick="handleTileClick(this)">
             <div class="tile-inner">
               <div class="tile-front tile-pink" style="display: flex; flex-direction: column; justify-content: space-between;">
                 <div class="tile-top-row">
@@ -1315,7 +1594,7 @@
           </div>
 
           <!-- TILE 3: Amazon Web Services Work Experience (1 row x 1 col) -->
-          <div class="metro-tile" onclick="handleTileClick(this)">
+          <div class="metro-tile tile-item-aws" onclick="handleTileClick(this)">
             <div class="tile-inner">
               <div class="tile-front tile-classic-blue" style="display: flex; flex-direction: column; justify-content: space-between;">
                 <div class="tile-top-row">
@@ -1343,7 +1622,7 @@
           </div>
 
           <!-- TILE 4: Reading & Knowledge Log (1 row x 1 col) -->
-          <div class="metro-tile" onclick="handleTileClick(this)">
+          <div class="metro-tile tile-item-bookshelf" onclick="handleTileClick(this)">
             <div class="tile-inner">
               <div class="tile-front tile-ivory" style="display: flex; flex-direction: column; justify-content: space-between; padding: 14px 12px 10px;">
                 <div></div>
@@ -1369,7 +1648,7 @@
           </div>
 
           <!-- TILE 5: Mulsy Project Showcase (1 row x 1 col) -->
-          <div class="metro-tile" onclick="handleTileClick(this)">
+          <div class="metro-tile tile-item-mulsy" onclick="handleTileClick(this)">
             <div class="tile-inner">
               <div class="tile-front tile-mulsy-front">
                 <div class="tile-top-row">
@@ -1394,7 +1673,7 @@
           </div>
 
           <!-- TILE 6: Beach & Mountain Photo Showcase (1 row x 2 cols) -->
-          <div class="metro-tile col-span-2" onclick="handleTileClick(this)">
+          <div class="metro-tile tile-item-beach col-span-2" onclick="handleTileClick(this)">
             <div class="tile-inner">
               <div class="tile-front tile-travel-beach"></div>
               <div class="tile-back tile-travel-mountain"></div>
@@ -1402,7 +1681,7 @@
           </div>
 
           <!-- TILE 7: Cinema & Favorite Movie 2026 (1 row x 1 col) -->
-          <div class="metro-tile" onclick="handleTileClick(this)">
+          <div class="metro-tile tile-item-cinema" onclick="handleTileClick(this)">
             <div class="tile-inner">
               <div class="tile-front tile-charcoal" style="display: flex; flex-direction: column; justify-content: space-between; padding: 14px 12px 10px;">
                 <div></div>
@@ -1433,7 +1712,7 @@
           </div>
 
           <!-- TILE 8: IIM Trichy Video Tile (1 row x 2 cols) -->
-          <div class="metro-tile col-span-2" data-no-autoflip="true" onclick="handleTileClick(this)">
+          <div class="metro-tile tile-item-campus col-span-2" data-no-autoflip="true" onclick="handleTileClick(this)">
             <div class="tile-inner">
               <div class="tile-front tile-video-front">
                 <video autoplay loop muted playsinline class="tile-bg-video">
@@ -1459,7 +1738,7 @@
           </div>
 
           <!-- TILE 9: Undergrad / Engineering (1 row x 1 col) -->
-          <div class="metro-tile" onclick="handleTileClick(this)">
+          <div class="metro-tile tile-item-undergrad" onclick="handleTileClick(this)">
             <div class="tile-inner">
               <div class="tile-front tile-pink" style="display: flex; flex-direction: column; justify-content: space-between; padding: 10px 12px 8px;">
                 <div class="tile-top-row">
@@ -1486,7 +1765,7 @@
           </div>
 
           <!-- TILE 10: Certifications (1 row x 1 col) -->
-          <div class="metro-tile" onclick="handleTileClick(this)">
+          <div class="metro-tile tile-item-certs" onclick="handleTileClick(this)">
             <div class="tile-inner">
               <div class="tile-front tile-charcoal" style="display: flex; flex-direction: column; justify-content: space-between; padding: 14px 12px 10px;">
                 <div></div>
@@ -1522,7 +1801,7 @@
           </div>
 
           <!-- TILE 11: LinkedIn (1 row x 1 col) -->
-          <div class="metro-tile" onclick="handleTileClick(this)">
+          <div class="metro-tile tile-item-linkedin" onclick="handleTileClick(this)">
             <div class="tile-inner">
               <div class="tile-front tile-classic-blue" style="display: flex; flex-direction: column; justify-content: space-between; padding: 10px 12px 8px;">
                 <div class="tile-top-row">
@@ -1550,7 +1829,7 @@
           </div>
 
           <!-- TILE 12: Favorite Quote (1 row x 1 col) -->
-          <div class="metro-tile" onclick="handleTileClick(this)">
+          <div class="metro-tile tile-item-quote" onclick="handleTileClick(this)">
             <div class="tile-inner">
               <div class="tile-front tile-yellow" style="display: flex; flex-direction: column; justify-content: space-between; padding: 12px 14px 10px;">
                 <div class="tile-top-row">
@@ -2068,6 +2347,27 @@
       flipTimer = setTimeout(runFlipCycle, FLIP_INTERVAL);
     }
     initAutoFlip();
+
+    // 3. Mobile Navigation Menu Toggle (< 1000px)
+    function toggleMobileMenu() {
+      const nav = document.getElementById('nav-actions');
+      if (nav) nav.classList.toggle('is-open');
+    }
+
+    function closeMobileMenu() {
+      const nav = document.getElementById('nav-actions');
+      if (nav) nav.classList.remove('is-open');
+    }
+
+    document.addEventListener('click', (e) => {
+      const nav = document.getElementById('nav-actions');
+      const btn = document.getElementById('mobile-menu-btn');
+      if (nav && btn && nav.classList.contains('is-open')) {
+        if (!nav.contains(e.target) && !btn.contains(e.target)) {
+          nav.classList.remove('is-open');
+        }
+      }
+    });
   </script>
 </body>
 </html>
